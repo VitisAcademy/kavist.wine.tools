@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Винные аксессуары</title>
+  <link rel="shortcut icon" href="img/favicon.png" type="image/png">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/scribe.css">
+  <link rel="stylesheet" href="css/picture.css">
+  <link rel="stylesheet" href="css/sort.css">
+  <script src="js/draggabilly.pkgd.min.js"></script>
+  <script src="js/db.js"></script>
+</head>
+<body>
+<div class="ave">
+  <div class="ave__title">Введите email</div>
+  <input type="email" maxlength="40" autocomplete="off" onkeyup="checkValidate(this)" autofocus class="ave__input">
+  <div class="ave__button button" onclick="logIn()">Продолжить</div>
+</div>
+<div class="header">
+  <div class="header__menu" onclick="toggleHamburger()"></div>
+  <div class="header__title">Классификация</div>
+</div>
+<div class="main">
+  <div class="task">
+    <div class="lock hidden"></div>
+    <div class="info">
+      <div class="info__title">Определите, к какой группе (Level Up или Wine Geek) относется утверждение и перетащите на соответствующую иконку.</div>
+      <div onclick="startInfo(this);sortMakeAnswer()" class="info__button button">Понятно!</div>
+    </div>
+    <div class="task__page sort left">
+      <div class="sort__wrapper">
+        <div class="sort__zone" style="background-image: url('img/zone1.svg')"></div>
+        <div class="sort__task"></div>
+        <div class="sort__zone" style="background-image: url('img/zone2.svg')"></div>
+      </div>
+      <div class="sort__button button" onclick="scoreButton(0)">Нажмите для завершения!</div>
+    </div>
+  </div>
+
+  <div class="task hidden">
+    <div class="lock hidden"></div>
+    <div class="info">
+      <div class="info__title">Посмотрите внимательно на картинку. Определите, что на ней изображено. Выберите один из вариантов ответов.</div>
+      <div onclick="startInfo(this);photoNext()" class="info__button button">Понятно!</div>
+    </div>
+    <div class="task__page picture left">
+      <div class="picture__button button hidden" onclick="scoreButton(1)">Нажмите для завершения!</div>
+    </div>
+  </div>
+
+  <div class="task hidden">
+    <div class="lock hidden"></div>
+    <div class="info">
+      <div class="info__title">Помогите журналисту написать статью. Для этого заполните пробелы в предложениях.</div>
+      <div onclick="startInfo(this)" class="info__button button">Понятно!</div>
+    </div>
+    <div class="task__page scribe left">
+      <div class="scribe__title">
+        Создателем
+        <input type="text" maxlength="7" autocomplete="off" class="scribe__input" style='width: calc(116px + 13 * ((100vw - 320px) / 880));'>
+        стал американец Грег Ламбрехт. Всё, что он использовал – современные технологии и законы физики. Аксессуар состоит из тонкой
+        <input type="text" maxlength="6" autocomplete="off" class="scribe__input" style='width: calc(99px + 12 * ((100vw - 320px) / 880));'>
+        и основы с
+        <input type="text" maxlength="9" autocomplete="off" class="scribe__input" style='width: calc(149px + 17 * ((100vw - 320px) / 880));'>
+        газом. Нужно вставить иглу в пробку и впустить вещество внутрь. При этом в бокал попадёт небольшое количество вина. Но самое приятное, что губительный для напитка
+        <input type="text" maxlength="8" autocomplete="off" class="scribe__input" style='width: calc(132px + 16 * ((100vw - 320px) / 880));'>
+        вообще не сможет проникнуть в бутылку.
+        <br><br>А как же
+        <input type="text" maxlength="9" autocomplete="off" class="scribe__input" style='width: calc(149px + 17 * ((100vw - 320px) / 880));'>
+        от иглы? Благодаря её толщине и особенностям Коравина корок быстро затягивается, как только вытащили устройство. Современные модели позволяют
+        <input type="text" maxlength="9" autocomplete="off" class="scribe__input" style='width: calc(149px + 17 * ((100vw - 320px) / 880));'>
+        вино не только на несколько месяцев, но даже на год и более. Один минус –
+        <input type="text" maxlength="4" autocomplete="off" class="scribe__input" style='width: calc(66px + 8 * ((100vw - 320px) / 880));'>
+        . За Coravin придётся отдать не менее 200-300
+        <input type="text" maxlength="8" autocomplete="off" class="scribe__input" style='width: calc(132px + 16 * ((100vw - 320px) / 880));'>.
+      </div>
+      <div class=" button" onclick="scoreButton(2);scribeCheck()">Нажмите для завершения!</div>
+    </div>
+  </div>
+
+  <div class="task hidden">
+    <div class="lock hidden"></div>
+    <div class="info">
+      <div class="info__title">Прочитайте внимательно вопрос. Дайте развёрнутый ответ в комментариях к уроку.</div>
+      <div onclick="startInfo(this)" class="info__button button">Понятно!</div>
+    </div>
+    <div class="task__page asked left">
+      <div class="asked__title"></div>
+      <div class=" button" onclick="endButton()">Дать ответ!</div>
+    </div>
+  </div>
+</div>
+<div class="footer"></div>
+<div class="menu menu__off">
+  <div class="menu__content"></div>
+</div>
+<script src="js/sort.js"></script>
+<script src="js/picture.js"></script>
+<script src="js/scribe.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
